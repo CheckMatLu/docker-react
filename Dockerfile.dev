@@ -1,0 +1,13 @@
+# Specifiy a base image
+FROM node:alpine
+
+# Determine working directory
+WORKDIR /usr/app
+
+# Install dependencies
+COPY ./package.json ./
+RUN npm install
+
+COPY . .
+
+CMD ["npm", "run", "start"]
